@@ -4,10 +4,9 @@ O objetivo deste aplicativo é fornecer um mecanismo de proxy reverso para ser u
 Por meio desse aplicativo é possível rodar uma aplicação com DNS de servidor localmente, evitando erros de CORS no navegador
 ## Instruções
 
-Para utilizar este proxy, primeiro execute com a opção `--init` para criar um arquivo de configuração inicial:
-
-```bash
-> npx unb-reverso --init
+Para utilizar este proxy, primeiramente clone o repositório na sua máquina:
+```
+git clone https://github.com/welyngton/unb-reverso.git
 ```
 
 Será criado um arquivo de configuração de exemplo com o nome `unb-reverso-conf.json` na mesma pasta com seguinte formato:
@@ -30,26 +29,7 @@ Será criado um arquivo de configuração de exemplo com o nome `unb-reverso-con
   }
 }
 ```
-
-Em seguida o desenvolvedor deve ajustar este arquivo para os dados da aplicação que está trabalhando, por exemplo:
-
-```json
-{
-  "version": 1,
-  "folhast.fabrica.local": {
-    "rules": {
-      ".*/rubrica/": "http://localhost:4000/",
-    },
-    "default": "http://folhaqa.fabrica.local"
-  },
-  "consig.st.fabrica.local": {
-    "rules": {
-      ".*/api/consignacoes/": "consig.qa.fabrica.local/api/consignacoes/"
-    },
-    "default": "consig.qa.fabrica.local"
-  }
-}
-```
+Em seguida o desenvolvedor deve ajustar este arquivo para os dados da aplicação que está trabalhando.
 
 > Para mais formatos de regras consulte o projeto <https://github.com/donasaur/http-proxy-rules>
 
@@ -59,11 +39,20 @@ Em seguida o desenvolvedor deve ajustar este arquivo para os dados da aplicaçã
 
 Para omitir os logs de redirecionamento, adicione a opção `--silent` ao `unb-reverso`:
 
+### Instalação
+
+Dentro do diretório clonado rodar o comando 'npm install' para instalar o unb-reverso
+
 ```bash
-> npx unb-reverso --silent
+> npm install
 ```
 
-### Configurações adicionais
+### Rodando o UNB-REVERSO
+```bash
+> npm start
+```
+
+#### Configurações adicionais
 
 Adicionar no arquivo HOSTS, o domínio que se deseja rodar como LOCALHOST
 
@@ -93,4 +82,4 @@ C:\Windows\System32\drivers\etc
 Caso ocorra erro de 'invalid check host' deve-se subir a aplicação com o seguinte comando
 ```
 ng s --host 127.0.0.1 --port 4200 --disable-host-check
-```
+````
