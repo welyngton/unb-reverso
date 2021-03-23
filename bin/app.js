@@ -1,21 +1,34 @@
 #!/usr/bin/env node
 
+const semver = require('semver');
+if (!semver.satisfies(semver.valid(process.version), '>= 10')) {
+  console.log('Versão mínima do node -> 10.x');
+  console.log('Versão instalada -> ' + process.version);
+  console.log(
+    'Versão do node não satisfeita, atualize para uma versão mais recente (>= 10) para utilizar o gaw-reverse.'
+  );
+  process.exit(1);
+}
+
 const https = require('https');
+const request = require('request');
 const chalk = require('chalk');
-const fs = require('fs-extra');
 const figlet = require('figlet');
-const { log, logb, logr, logc } = require('./color-log');
+const { log, logb, logr, logc, logy, logg } = require('./color-log');
 const packageJSON = require('../package.json');
 const { program } = require('commander');
-
+const fs = require('fs-extra');
+const path = require('path');
+const url = require('url');
 const httpProxy = require('http-proxy');
+const HttpsProxyAgent = require('https-proxy-agent');
 const HttpProxyRules = require('http-proxy-rules');
+
 
 const port = 443;
 
+// para opções como certificados
 const options = {
-  key: fs.readFileSync(__dirname + '/server.key', 'utf8'),
-  cert: fs.readFileSync(__dirname + '/server.crt', 'utf8'),
 };
 
 logr(figlet.textSync('UNB-REVERSO').split('_').join('.'));

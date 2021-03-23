@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "folhast.fabrica.local": {
+  "url.servidor.estatico": {
     "rules": {
-      ".*/<minha-api>/": "http://localhost:4200/",
+      ".*/<minha-api>/": "http://localhost:4200/"
     },
-    "default": "http://folhaqa.fabrica.local"
+    "default": "http://url.servidor.br"
   },
-  "consig.st.fabrica.local": {
+  "url.servidor.api": {
     "rules": {
-      ".*/<minha-api>/": "consig.qa.fabrica.local/minha-api"
+      ".*/<minha-api>/": "http://localhost:80/"
     },
-    "default": "consig.qa.fabrica.local"
+    "default": "http://url.servidor.br"
   }
 }
