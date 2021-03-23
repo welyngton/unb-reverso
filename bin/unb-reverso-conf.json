@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "folhast.fabrica.local": {
+    "rules": {
+      ".*/<minha-api>/": "http://localhost:4200/",
+    },
+    "default": "http://folhaqa.fabrica.local"
+  },
+  "consig.st.fabrica.local": {
+    "rules": {
+      ".*/<minha-api>/": "consig.qa.fabrica.local/minha-api"
+    },
+    "default": "consig.qa.fabrica.local"
+  }
+}
