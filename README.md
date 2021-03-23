@@ -1,9 +1,7 @@
 # unb-reverso
 
-O objetivo deste aplicativo é fornecer um mecanismo de proxy reverso para ser utilizado durante o desenvolvimento e testes de aplicativos
-
-> **Observação**: Caso a execução com `npx` esteja lenta devido a problemas de rede, é possível fazer a instalação local do `unb-reverso` com o comando `npm install -g unb-reverso` em seguida, troque o comando `npx unb-reverso` por `unb-reverso` nas instruções abaixo. A desvantagem é que, para receber atualizações do `unb-reverso`, você terá que instalá-lo novamente.
-
+O objetivo deste aplicativo é fornecer um mecanismo de proxy reverso para ser utilizado durante o desenvolvimento e testes de aplicativos.
+Por meio desse aplicativo é possível rodar uma aplicação com DNS de servidor localmente, evitando erros de CORS no navegador
 ## Instruções
 
 Para utilizar este proxy, primeiro execute com a opção `--init` para criar um arquivo de configuração inicial:
@@ -17,18 +15,18 @@ Será criado um arquivo de configuração de exemplo com o nome `unb-reverso-con
 ```json
 {
   "version": 1,
-  "unb.qa.fabrica.local": {
+  "dominio.qa.fabrica.local": {
     "rules": {
       ".*/<minha-api>/": "http://localhost:80/api/",
       ".*/<meu-front>/pagina": "http://localhost:4200/pagina",
     },
-    "default": "http://unb.qa.fabrica.local"
+    "default": "http://dominio.qa.fabrica.local"
   },
-  "unb.st.fabrica.local": {
+  "dominio2.qa.fabrica.local": {
     "rules": {
       ".*/<minha-api>/": "http://localhost:80"
     },
-    "default": "http://unb.st.fabrica.local"
+    "default": "http://localhost.st.fabrica.local"
   }
 }
 ```
@@ -63,4 +61,36 @@ Para omitir os logs de redirecionamento, adicione a opção `--silent` ao `unb-r
 
 ```bash
 > npx unb-reverso --silent
+```
+
+### Configurações adicionais
+
+Adicionar no arquivo HOSTS, o domínio que se deseja rodar como LOCALHOST
+
+Por exemplo para rodar o domínio 'dominio.qa.fabrica.local' localmente conforme o arquivo de configuração de exemplo 'unb-reverso-conf.json'
+
+Deve-se incluir este arquivo no HOSTs do sistema operacional adicionando a linha abaixo no arquivo 'Hosts':
+```
+127.0.0.1  dominio.qa.fabrica.local
+```
+
+* No Windows
+```
+C:\Windows\System32\drivers\etc
+```
+
+* No Mac
+```
+/private/etc/hosts
+```
+
+* No Linux
+```
+/etc/hosts
+```
+
+### Desativando check host para o Angular
+Caso ocorra erro de 'invalid check host' deve-se subir a aplicação com o seguinte comando
+```
+ng s --host 127.0.0.1 --port 4200 --disable-host-check
 ```

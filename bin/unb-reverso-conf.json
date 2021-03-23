@@ -1,14 +1,11 @@
 {
   "version": 1,
-  "localhost:4200": {
+  "dominio.qa.fabrica.local": {
     "rules": {
-      "/estatico/<seu-contexto-angularjs>/": "http://localhost:8100/",
-      "*./home": "http://localhost:4200",
-      "/<seu-contexto-api>/v3/": "http://localhost:7001/<seu-contexto-api>/v3/"
     },
-    "default": "http://janus.qa.fabrica.local"
+    "default": "http://localhost:4200"
   },
-  "localhost.estatico.bb.com.br": {
+  "dominio.unb.br": {
     "rules": {
       "/bar/": "http://localhost:8100/"
     },
