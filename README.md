@@ -33,12 +33,6 @@ Em seguida o desenvolvedor deve ajustar este arquivo para os dados da aplicaçã
 
 > Para mais formatos de regras consulte o projeto <https://github.com/donasaur/http-proxy-rules>
 
-```bash
-> npx unb-reverso
-```
-
-Para omitir os logs de redirecionamento, adicione a opção `--silent` ao `unb-reverso`:
-
 ### Instalação
 
 Dentro do diretório clonado rodar o comando 'npm install' para instalar o unb-reverso
@@ -82,4 +76,8 @@ C:\Windows\System32\drivers\etc
 Caso ocorra erro de 'invalid check host' deve-se subir a aplicação com o seguinte comando
 ```
 ng s --host 127.0.0.1 --port 4200 --disable-host-check
-````
+```
+
+### Agradecimentos
+Conheçam o trabalho do Tiago Lage Padua, responsável por toda a inspiração e orientação espiritual necessária para esta implementação
+https://github.com/tiagolpadua
