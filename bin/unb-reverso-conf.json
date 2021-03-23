@@ -1,16 +1,17 @@
 {
   "version": 1,
-  "dominio1.unb.local": {
+  "localhost:4200": {
     "rules": {
-      "/cotacoes": "http://localhost:4200/",
-      "/api/cotacoes/": "http://localhost:80"
+      "/estatico/<seu-contexto-angularjs>/": "http://localhost:8100/",
+      "*./home": "http://localhost:4200",
+      "/<seu-contexto-api>/v3/": "http://localhost:7001/<seu-contexto-api>/v3/"
     },
-    "default": "http://dominio1.unb.local"
+    "default": "http://janus.qa.fabrica.local"
   },
-  "dominio2.unb.br": {
+  "localhost.estatico.bb.com.br": {
     "rules": {
-      "/gaw/": "http://localhost:8100/"
+      "/bar/": "http://localhost:8100/"
     },
-    "default": "http://dominio2.unb.br"
+    "default": "http://janus.qa.fabrica.local"
   }
 }

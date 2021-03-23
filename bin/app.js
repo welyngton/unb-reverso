@@ -88,7 +88,7 @@ if (!config.version || config.version !== 1) {
 
 const proxy = httpProxy.createProxyServer({ secure: false });
 
-//No caso de HTTPS (usar o HTTP e passar os certificados no options)
+//No caso de HTTPS (usar a LIB de HTTPS e passar os certificados no options)
 http
   .createServer(function (req, res) {
     const host = req.headers['host'];

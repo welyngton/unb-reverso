@@ -17,17 +17,18 @@ Será criado um arquivo de configuração de exemplo com o nome `unb-reverso-con
 ```json
 {
   "version": 1,
-  "folhast.fabrica.local": {
+  "unb.qa.fabrica.local": {
     "rules": {
-      ".*/<minha-api>/": "http://localhost:4200/",
+      ".*/<minha-api>/": "http://localhost:80/api/",
+      ".*/<meu-front>/pagina": "http://localhost:4200/pagina",
     },
-    "default": "http://folhaqa.fabrica.local"
+    "default": "http://unb.qa.fabrica.local"
   },
-  "consig.st.fabrica.local": {
+  "unb.st.fabrica.local": {
     "rules": {
-      ".*/<minha-api>/": "consig.qa.fabrica.local/minha-api"
+      ".*/<minha-api>/": "http://localhost:80"
     },
-    "default": "consig.qa.fabrica.local"
+    "default": "http://unb.st.fabrica.local"
   }
 }
 ```
