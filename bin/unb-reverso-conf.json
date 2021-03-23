@@ -1,16 +1,16 @@
 {
   "version": 1,
-  "janus.qa.fabrica.local": {
+  "dominio1.unb.local": {
     "rules": {
       "/cotacoes": "http://localhost:4200/",
       "/api/cotacoes/": "http://localhost:80"
     },
-    "default": "http://janus.qa.fabrica.local"
+    "default": "http://dominio1.unb.local"
   },
   "dominio2.unb.br": {
     "rules": {
       "/gaw/": "http://localhost:8100/"
     },
-    "default": "https://desenv.estatico.bb.com.br"
+    "default": "http://dominio2.unb.br"
   }
 }
