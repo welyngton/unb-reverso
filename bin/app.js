@@ -11,6 +11,7 @@ if (!semver.satisfies(semver.valid(process.version), '>= 10')) {
 }
 
 const https = require('https');
+const http = require('http');
 const request = require('request');
 const chalk = require('chalk');
 const figlet = require('figlet');
@@ -25,11 +26,14 @@ const HttpsProxyAgent = require('https-proxy-agent');
 const HttpProxyRules = require('http-proxy-rules');
 
 
-const port = 443;
+const port = 80;
 
-// para opções como certificados
-const options = {
-};
+// para opções como certificados para usar com https
+ // exemplo
+ // const options = {
+ // key: fs.readFileSync('exemplo-key.pem'),
+ // cert: fs.readFileSync('exemplo-cert.pem')
+ // }
 
 logr(figlet.textSync('UNB-REVERSO').split('_').join('.'));
 
@@ -84,8 +88,9 @@ if (!config.version || config.version !== 1) {
 
 const proxy = httpProxy.createProxyServer({ secure: false });
 
-https
-  .createServer(options, function (req, res) {
+//No caso de HTTPS (usar o HTTP e passar os certificados no options)
+http
+  .createServer(function (req, res) {
     const host = req.headers['host'];
 
     const proxyRules = new HttpProxyRules(config[host]);

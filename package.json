@@ -27,7 +27,7 @@
     "prettier": "^2.0.5"
   },
   "scripts": {
-    "start": "nodemon ./bin/app.js -c ./bin/unb-reverso-conf.json",
+    "start": "node ./bin/app.js -c ./bin/unb-reverso-conf.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

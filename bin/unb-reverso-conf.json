@@ -1,15 +1,16 @@
 {
   "version": 1,
-  "url.servidor.estatico": {
+  "janus.qa.fabrica.local": {
     "rules": {
-      ".*/<minha-api>/": "http://localhost:4200/"
+      "/cotacoes": "http://localhost:4200/",
+      "/api/cotacoes/": "http://localhost:80"
     },
-    "default": "http://url.servidor.br"
+    "default": "http://janus.qa.fabrica.local"
   },
-  "url.servidor.api": {
+  "dominio2.unb.br": {
     "rules": {
-      ".*/<minha-api>/": "http://localhost:80/"
+      "/gaw/": "http://localhost:8100/"
     },
-    "default": "http://url.servidor.br"
+    "default": "https://desenv.estatico.bb.com.br"
   }
 }
